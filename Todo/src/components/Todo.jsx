@@ -52,13 +52,13 @@ const handleSave = () => {
         {/* Filter Buttons */}
         <div className="px-6 py-4 border-b border-slate-200">
           <div className="flex flex-wrap gap-2">
-            <button onClick={() => setFilter("all")} className="px-4 py-2 cursor-pointer rounded-lg bg-slate-900 text-white font-medium">
+            <button onClick={() => setFilter("all")} className={`px-4 py-2 cursor-pointer rounded-lg ${filter === "all" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"}  font-medium`}>
               All
             </button>
-            <button onClick={() => setFilter("active")} className="px-4 py-2 cursor-pointer rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium transition-colors">
+            <button onClick={() => setFilter("active")} className={`px-4 py-2 cursor-pointer rounded-lg ${filter === "active" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"} font-medium transition-colors`}>
               Active
             </button>
-            <button onClick={() => setFilter("completed")} className="px-4 py-2 cursor-pointer rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium transition-colors">
+            <button onClick={() => setFilter("completed")} className={`px-4 py-2 cursor-pointer rounded-lg ${filter === "completed" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"} font-medium transition-colors`}>
               Completed
             </button>
           </div>

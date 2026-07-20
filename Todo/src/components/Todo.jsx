@@ -49,8 +49,7 @@ const handleSave = () => {
           </div>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="px-6 py-4 border-b border-slate-200">
+        {todos.length > 0 && <div className="px-6 py-4 border-b border-slate-200">
           <div className="flex flex-wrap gap-2">
             <button onClick={() => setFilter("all")} className={`px-4 py-2 cursor-pointer rounded-lg ${filter === "all" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"}  font-medium`}>
               All
@@ -62,7 +61,7 @@ const handleSave = () => {
               Completed
             </button>
           </div>
-        </div>
+        </div>}
 
         {/* Todo List */}
         <div className="p-6 space-y-4 max-h-[400px] overflow-y-auto">
@@ -87,7 +86,7 @@ const handleSave = () => {
               </p>
             </div>
 
-            <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <div className="flex gap-2 transition-opacity duration-200">
               <button className="p-2 cursor-pointer rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors">
                 ✏️
               </button>
@@ -98,18 +97,17 @@ const handleSave = () => {
           </div>
           })}
 
-          {/* Empty State Example (remove when using real data) */}
-          <div className="hidden flex-col items-center justify-center py-12 text-center">
-            <div className="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center mb-4">
+          {todos.length<1 &&
+          <div className="flex-col items-center justify-center py-12 text-center">
+            <div className="w-20 h-20 m-auto rounded-full bg-slate-100 flex items-center justify-center mb-4">
               <span className="text-3xl">📝</span>
             </div>
             <h3 className="text-lg font-semibold text-slate-900">No tasks yet</h3>
             <p className="text-slate-500 mt-1">Add your first task to get started.</p>
-          </div>
+          </div>}
         </div>
 
-        {/* Footer */}
-        <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
+        {todos.length>0 && <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
             <span className="text-slate-600">
               <span className="font-semibold text-slate-900">{remainingTodo}</span> {remainingTodo === 1 ? "item" : "items"} left
@@ -119,7 +117,7 @@ const handleSave = () => {
               Clear completed
             </button>
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   );
